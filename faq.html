@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KickZone — FAQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">KICK<span>ZONE</span></a>
+      <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="nav-cart">🛒 Cart <span class="cart-count" id="cartCount">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-grid">
+
+        <!-- SIDEBAR -->
+        <div class="faq-sidebar">
+          <p class="section-subtitle">We've Got Answers</p>
+          <h1>FREQUENTLY ASKED <span class="highlight">QUESTIONS</span></h1>
+          <p>Can't find what you're looking for? Browse by category or reach out to our team directly — we're always happy to help.</p>
+
+          <div class="faq-cats">
+            <button class="faq-cat-btn active" onclick="showCategory(this, 'orders')">📦 Orders & Payments</button>
+            <button class="faq-cat-btn" onclick="showCategory(this, 'delivery')">🚚 Delivery & Shipping</button>
+            <button class="faq-cat-btn" onclick="showCategory(this, 'returns')">↩️ Returns & Refunds</button>
+            <button class="faq-cat-btn" onclick="showCategory(this, 'products')">⚽ Products & Sizing</button>
+            <button class="faq-cat-btn" onclick="showCategory(this, 'account')">👤 Account & Loyalty</button>
+          </div>
+
+          <div style="margin-top:36px;background:var(--charcoal);border-radius:8px;padding:24px;border:1px solid var(--dark-grey);border-top:3px solid var(--green);">
+            <p style="font-family:var(--font-condensed);font-weight:700;letter-spacing:1px;margin-bottom:8px;">STILL NEED HELP?</p>
+            <p style="color:#aaa;font-size:0.9rem;margin-bottom:16px;">Our support team is available 7 days a week to assist you.</p>
+            <a href="contact.html" class="btn btn-primary" style="width:100%;text-align:center;display:block;">Contact Us</a>
+          </div>
+        </div>
+
+        <!-- FAQ LIST -->
+        <div>
+          <!-- Orders -->
+          <div class="faq-list" id="cat-orders">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:20px;">📦 Orders & Payments</h3>
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I place an order? <span class="arrow">▼</span></div>
+              <div class="faq-a">Simply browse our shop, click "Add to Cart" on any product you like, then head to your cart and click "Proceed to Checkout". You can pay securely by card, PayPal, or Apple Pay.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What payment methods do you accept? <span class="arrow">▼</span></div>
+              <div class="faq-a">We accept Visa, Mastercard, American Express, PayPal, Apple Pay, and Google Pay. All transactions are secured with SSL encryption.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can I modify or cancel my order after placing it? <span class="arrow">▼</span></div>
+              <div class="faq-a">Orders can be modified or cancelled within 1 hour of being placed. After that, they may have already been dispatched. Contact us as soon as possible at support@kickzone.co.uk.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I use a coupon code? <span class="arrow">▼</span></div>
+              <div class="faq-a">Enter your coupon code in the "Coupon Code" box on the cart page and click "Apply". The discount will be applied immediately to your order total.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Is my payment information secure? <span class="arrow">▼</span></div>
+              <div class="faq-a">Absolutely. We use Stripe for payment processing — your card details are never stored on our servers. All data is encrypted using industry-standard SSL/TLS protocols.</div>
+            </div>
+          </div>
+
+          <!-- Delivery -->
+          <div class="faq-list" id="cat-delivery" style="display:none;">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:20px;">🚚 Delivery & Shipping</h3>
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">How long does delivery take? <span class="arrow">▼</span></div>
+              <div class="faq-a">Standard delivery takes 2–3 working days. Express next-day delivery is available for orders placed before 2pm Monday–Friday. International shipping typically takes 5–10 working days.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Do you offer free delivery? <span class="arrow">▼</span></div>
+              <div class="faq-a">Yes! We offer free standard delivery on all UK orders over £50. Orders under £50 have a flat delivery fee of £4.99.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Do you ship internationally? <span class="arrow">▼</span></div>
+              <div class="faq-a">Yes, we ship to over 50 countries worldwide. International delivery costs vary by destination and are calculated at checkout. Import duties may apply depending on your country.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I track my order? <span class="arrow">▼</span></div>
+              <div class="faq-a">Once your order is dispatched, you'll receive a tracking number by email. You can track your parcel directly via our courier's website. Alternatively, log into your KickZone account to view your order status.</div>
+            </div>
+          </div>
+
+          <!-- Returns -->
+          <div class="faq-list" id="cat-returns" style="display:none;">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:20px;">↩️ Returns & Refunds</h3>
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">What is your return policy? <span class="arrow">▼</span></div>
+              <div class="faq-a">We offer a 30-day return policy on all unworn, unwashed, and unmodified items in their original packaging. Simply contact us to initiate a return and we'll send you a prepaid return label.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How long do refunds take? <span class="arrow">▼</span></div>
+              <div class="faq-a">Once we receive your returned item and inspect it, your refund will be processed within 3–5 working days. It may take a further 5–10 days to appear in your bank account depending on your provider.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What if I received a wrong or damaged item? <span class="arrow">▼</span></div>
+              <div class="faq-a">We're very sorry if this happened! Please contact us within 48 hours with photos of the item and your order number. We'll send a replacement immediately and arrange collection of the incorrect item at no cost to you.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can I exchange an item for a different size? <span class="arrow">▼</span></div>
+              <div class="faq-a">Yes! We offer free exchanges for size issues. Contact our team within 30 days of receiving your order and we'll arrange the swap. Stock permitting, we'll dispatch the new size the same day we receive your return.</div>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div class="faq-list" id="cat-products" style="display:none;">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:20px;">⚽ Products & Sizing</h3>
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">Are your shirts and boots 100% authentic? <span class="arrow">▼</span></div>
+              <div class="faq-a">Absolutely. Every product we sell is sourced directly from official brand distributors and comes with the relevant authenticity tags and certificates. We never stock replicas or counterfeit items — guaranteed.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How do I find my correct shirt size? <span class="arrow">▼</span></div>
+              <div class="faq-a">Each product page includes a full size guide with chest and waist measurements. As a general rule, football shirts run slightly slim. If you're between sizes or prefer a looser fit, we recommend sizing up.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">What football boot type should I choose? <span class="arrow">▼</span></div>
+              <div class="faq-a">FG (Firm Ground) suits natural grass pitches. AG (Artificial Ground) is for 3G/4G astro turf. SG (Soft Ground) is for muddy pitches with removable studs. TF (Turf) is for hard artificial surfaces. Check the product description for the recommended surface.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Can I get shirt printing/personalisation? <span class="arrow">▼</span></div>
+              <div class="faq-a">Yes! We offer official name and number printing on most shirts. Simply select the customisation option on the product page before adding to cart. Please note that personalised items cannot be returned unless faulty.</div>
+            </div>
+          </div>
+
+          <!-- Account -->
+          <div class="faq-list" id="cat-account" style="display:none;">
+            <h3 style="font-family:var(--font-display);font-size:2rem;letter-spacing:2px;margin-bottom:20px;">👤 Account & Loyalty</h3>
+            <div class="faq-item open">
+              <div class="faq-q" onclick="toggleFaq(this)">Do I need an account to shop? <span class="arrow">▼</span></div>
+              <div class="faq-a">No — you can checkout as a guest. However, creating an account lets you track orders, save your address, access exclusive deals, and earn loyalty points on every purchase.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">How does the KickZone loyalty programme work? <span class="arrow">▼</span></div>
+              <div class="faq-a">Earn 1 point for every £1 spent. 100 points = £1 off your next order. Points never expire and can be redeemed at checkout. Sign up for a free account to start earning today.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">Do you offer a student discount? <span class="arrow">▼</span></div>
+              <div class="faq-a">Yes! We offer 10% off for students verified through Student Beans or UNiDAYS. Visit the student discount page and verify your student status to receive your unique discount code.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" onclick="toggleFaq(this)">I forgot my password — how do I reset it? <span class="arrow">▼</span></div>
+              <div class="faq-a">Click "Forgot Password" on the login page and enter your email address. You'll receive a reset link within a few minutes. Check your spam folder if it doesn't arrive promptly.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="promo-banner">
+    <div class="container">
+      <h2>STILL HAVE A QUESTION?</h2>
+      <p>Our support team replies within 24 hours — usually much faster!</p>
+      <a href="contact.html" class="btn btn-dark">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">KICK<span>ZONE</span></div>
+          <p>Your home for authentic football shirts and boots.</p>
+          <div class="social-links">
+            <a class="social-link" href="#">𝕏</a>
+            <a class="social-link" href="#">📘</a>
+            <a class="social-link" href="#">📸</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?cat=shirts">Shirts</a></li>
+            <li><a href="shop.html?cat=boots">Boots</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 KickZone Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="store.js"></script>
+  <script>
+    updateCartCount();
+
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      item.classList.toggle('open');
+    }
+
+    function showCategory(btn, cat) {
+      document.querySelectorAll('.faq-cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ['orders','delivery','returns','products','account'].forEach(c => {
+        document.getElementById('cat-' + c).style.display = c === cat ? 'flex' : 'none';
+        if (c === cat) document.getElementById('cat-' + c).style.flexDirection = 'column';
+      });
+    }
+  </script>
+</body>
+</html>

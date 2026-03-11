@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KickZone — Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">KICK<span>ZONE</span></a>
+      <div class="nav-menu">
+        <a href="index.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="nav-cart">🛒 Cart <span class="cart-count" id="cartCount">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-lines"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">⚽ New Season 2024/25 Collection</div>
+        <h1>PLAY<br><span class="highlight">LIKE A</span><br>LEGEND</h1>
+        <p>Premium football shirts and boots from the world's top clubs and brands. From pitch to passion — gear up and dominate.</p>
+        <div class="hero-btns">
+          <a href="shop.html" class="btn btn-primary">Shop Now</a>
+          <a href="about.html" class="btn btn-outline">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-inner">
+          <div class="big">50+</div>
+          <div class="small">Top Clubs<br>Available</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES STRIP -->
+  <div class="features-strip">
+    <div class="container">
+      <div class="feature-item"><span class="icon">🚚</span> Free Delivery Over £50</div>
+      <div class="feature-item"><span class="icon">↩️</span> 30-Day Returns</div>
+      <div class="feature-item"><span class="icon">🔒</span> Secure Checkout</div>
+      <div class="feature-item"><span class="icon">✅</span> 100% Authentic</div>
+      <div class="feature-item"><span class="icon">🌍</span> Ships Worldwide</div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section categories">
+    <div class="container">
+      <p class="section-subtitle">Browse By Category</p>
+      <h2 class="section-title">WHAT ARE YOU<br><span class="highlight">LOOKING FOR?</span></h2>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="window.location='shop.html?cat=shirts'">
+          <img class="cat-card-img" src="https://images.unsplash.com/photo-1560272564-c83b66b1ad12?w=700&q=80" alt="Football Shirts"/>
+          <div class="cat-card-overlay">
+            <h3>FOOTBALL SHIRTS</h3>
+            <p>Official kits from Premier League, La Liga, Serie A & more</p>
+            <span class="cat-tag">120+ Styles</span>
+          </div>
+        </div>
+        <div class="cat-card" onclick="window.location='shop.html?cat=boots'">
+          <img class="cat-card-img" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80" alt="Football Boots"/>
+          <div class="cat-card-overlay">
+            <h3>FOOTBALL BOOTS</h3>
+            <p>Nike, Adidas, Puma — from firm ground to astro turf</p>
+            <span class="cat-tag">80+ Models</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section products">
+    <div class="container">
+      <p class="section-subtitle">Hand Picked For You</p>
+      <h2 class="section-title">FEATURED <span class="highlight">PRODUCTS</span></h2>
+      <div class="products-grid" id="featuredProducts"></div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="shop.html" class="btn btn-outline">View All Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO BANNER -->
+  <section class="promo-banner">
+    <div class="container">
+      <h2>GET 20% OFF YOUR FIRST ORDER</h2>
+      <p>Use code <strong>KICKZONE20</strong> at checkout — limited time offer!</p>
+      <a href="shop.html" class="btn btn-dark">Shop the Sale</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">KICK<span>ZONE</span></div>
+          <p>Your home for authentic football shirts and boots. Trusted by thousands of fans and players across the UK and beyond.</p>
+          <div class="social-links">
+            <a class="social-link" href="#">𝕏</a>
+            <a class="social-link" href="#">📘</a>
+            <a class="social-link" href="#">📸</a>
+            <a class="social-link" href="#">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="shop.html?cat=shirts">Football Shirts</a></li>
+            <li><a href="shop.html?cat=boots">Football Boots</a></li>
+            <li><a href="shop.html?sale=true">Sale</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 KickZone Ltd. All rights reserved. | College Assignment Project</p>
+        <p>🔒 Secure Payments | Visa | Mastercard | PayPal</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="store.js"></script>
+  <script>
+    // Render 4 featured products on homepage
+    const featured = products.slice(0, 4);
+    document.getElementById('featuredProducts').innerHTML = featured.map(renderProductCard).join('');
+    updateCartCount();
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+    }, {threshold: 0.1});
+    reveals.forEach(r => obs.observe(r));
+  </script>
+</body>
+</html>

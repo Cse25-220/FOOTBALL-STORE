@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KickZone — Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-logo">KICK<span>ZONE</span></a>
+      <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="about.html">About</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="cart.html" class="nav-cart">🛒 Cart <span class="cart-count" id="cartCount">0</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SHOP HERO -->
+  <div class="shop-hero">
+    <div class="container">
+      <p class="section-subtitle">Everything You Need</p>
+      <h1 class="section-title">THE <span class="highlight">SHOP</span></h1>
+    </div>
+  </div>
+
+  <!-- SHOP LAYOUT -->
+  <div class="section" style="padding-top:40px;">
+    <div class="container">
+      <div class="shop-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="shop-sidebar">
+          <div class="filter-box">
+            <div class="filter-title">Category</div>
+            <div class="filter-list">
+              <label class="filter-item"><input type="checkbox" id="chk-shirts" onchange="applyFilters()"/> Football Shirts</label>
+              <label class="filter-item"><input type="checkbox" id="chk-boots" onchange="applyFilters()"/> Football Boots</label>
+            </div>
+          </div>
+
+          <div class="filter-box">
+            <div class="filter-title">Brand</div>
+            <div class="filter-list">
+              <label class="filter-item"><input type="checkbox" id="chk-nike" onchange="applyFilters()"/> Nike</label>
+              <label class="filter-item"><input type="checkbox" id="chk-adidas" onchange="applyFilters()"/> Adidas</label>
+              <label class="filter-item"><input type="checkbox" id="chk-puma" onchange="applyFilters()"/> Puma</label>
+              <label class="filter-item"><input type="checkbox" id="chk-nb" onchange="applyFilters()"/> New Balance</label>
+            </div>
+          </div>
+
+          <div class="filter-box">
+            <div class="filter-title">Price Range (£)</div>
+            <div class="price-range">
+              <input type="number" id="minPrice" placeholder="Min" min="0" onchange="applyFilters()"/>
+              <input type="number" id="maxPrice" placeholder="Max" min="0" onchange="applyFilters()"/>
+            </div>
+          </div>
+
+          <div class="filter-box">
+            <div class="filter-title">Deals</div>
+            <div class="filter-list">
+              <label class="filter-item"><input type="checkbox" id="chk-sale" onchange="applyFilters()"/> On Sale</label>
+              <label class="filter-item"><input type="checkbox" id="chk-new" onchange="applyFilters()"/> New Arrivals</label>
+            </div>
+          </div>
+
+          <button class="btn btn-dark" onclick="clearFilters()" style="width:100%;margin-top:8px;">Clear Filters</button>
+        </aside>
+
+        <!-- PRODUCTS -->
+        <div class="shop-products">
+          <!-- Tab Filter -->
+          <div class="tab-filter">
+            <button class="tab-btn active" onclick="setTab(this,'all')">All</button>
+            <button class="tab-btn" onclick="setTab(this,'shirts')">Shirts</button>
+            <button class="tab-btn" onclick="setTab(this,'boots')">Boots</button>
+            <button class="tab-btn" onclick="setTab(this,'sale')">Sale</button>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="shop-toolbar">
+            <span class="results-count" id="resultsCount">Showing 12 products</span>
+            <select class="sort-select" id="sortSelect" onchange="applyFilters()">
+              <option value="default">Sort: Featured</option>
+              <option value="low-high">Price: Low to High</option>
+              <option value="high-low">Price: High to Low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+
+          <div class="products-grid" id="shopProducts"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">KICK<span>ZONE</span></div>
+          <p>Your home for authentic football shirts and boots.</p>
+          <div class="social-links">
+            <a class="social-link" href="#">𝕏</a>
+            <a class="social-link" href="#">📘</a>
+            <a class="social-link" href="#">📸</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html">All Products</a></li>
+            <li><a href="#">Football Shirts</a></li>
+            <li><a href="#">Football Boots</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 KickZone Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="store.js"></script>
+  <script>
+    let activeTab = 'all';
+
+    function setTab(btn, tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeTab = tab;
+      applyFilters();
+    }
+
+    function applyFilters() {
+      let filtered = [...products];
+
+      // Tab filter
+      if (activeTab === 'shirts') filtered = filtered.filter(p => p.category === 'shirts');
+      else if (activeTab === 'boots') filtered = filtered.filter(p => p.category === 'boots');
+      else if (activeTab === 'sale') filtered = filtered.filter(p => p.oldPrice);
+
+      // Checkbox category
+      const chkShirts = document.getElementById('chk-shirts').checked;
+      const chkBoots = document.getElementById('chk-boots').checked;
+      if (chkShirts || chkBoots) {
+        filtered = filtered.filter(p =>
+          (chkShirts && p.category === 'shirts') || (chkBoots && p.category === 'boots')
+        );
+      }
+
+      // Checkbox brand
+      const chkNike = document.getElementById('chk-nike').checked;
+      const chkAdidas = document.getElementById('chk-adidas').checked;
+      const chkPuma = document.getElementById('chk-puma').checked;
+      const chkNb = document.getElementById('chk-nb').checked;
+      if (chkNike || chkAdidas || chkPuma || chkNb) {
+        filtered = filtered.filter(p =>
+          (chkNike && p.brand === 'Nike') ||
+          (chkAdidas && p.brand === 'Adidas') ||
+          (chkPuma && p.brand === 'Puma') ||
+          (chkNb && p.brand === 'New Balance')
+        );
+      }
+
+      // Price
+      const minP = parseFloat(document.getElementById('minPrice').value) || 0;
+      const maxP = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+      filtered = filtered.filter(p => p.price >= minP && p.price <= maxP);
+
+      // Sale / New
+      if (document.getElementById('chk-sale').checked) filtered = filtered.filter(p => p.oldPrice);
+      if (document.getElementById('chk-new').checked) filtered = filtered.filter(p => p.badge === 'new');
+
+      // Sort
+      const sort = document.getElementById('sortSelect').value;
+      if (sort === 'low-high') filtered.sort((a,b) => a.price - b.price);
+      else if (sort === 'high-low') filtered.sort((a,b) => b.price - a.price);
+      else if (sort === 'name') filtered.sort((a,b) => a.name.localeCompare(b.name));
+
+      document.getElementById('resultsCount').textContent = `Showing ${filtered.length} product${filtered.length !== 1 ? 's' : ''}`;
+      document.getElementById('shopProducts').innerHTML = filtered.length
+        ? filtered.map(renderProductCard).join('')
+        : '<p style="color:#888;grid-column:1/-1;text-align:center;padding:40px;">No products match your filters.</p>';
+    }
+
+    function clearFilters() {
+      ['chk-shirts','chk-boots','chk-nike','chk-adidas','chk-puma','chk-nb','chk-sale','chk-new'].forEach(id => {
+        document.getElementById(id).checked = false;
+      });
+      document.getElementById('minPrice').value = '';
+      document.getElementById('maxPrice').value = '';
+      document.getElementById('sortSelect').value = 'default';
+      activeTab = 'all';
+      document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', i===0));
+      applyFilters();
+    }
+
+    // Check URL params
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlCat = urlParams.get('cat');
+    if (urlCat === 'shirts') { document.getElementById('chk-shirts').checked = true; }
+    if (urlCat === 'boots') { document.getElementById('chk-boots').checked = true; }
+
+    applyFilters();
+    updateCartCount();
+  </script>
+</body>
+</html>
